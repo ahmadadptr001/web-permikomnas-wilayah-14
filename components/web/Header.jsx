@@ -14,9 +14,7 @@ import {
   Search,
   User,
   Bell,
-  Menu,
   Home,
-  Info,
   Calendar,
   LayoutDashboard,
   Newspaper,
@@ -62,8 +60,6 @@ export default function Header() {
     setLanguageStore(language);
   }, [language]);
 
-  // Updated navLinks: 'Profil' changed to 'Berita'
-  // 'Tentang' is handled separately for dropdown logic in Desktop
   const navLinks = [
     { name: 'Beranda', href: '/web', icon: <Home size={18} /> },
     { name: 'Agenda', href: '/web/agenda', icon: <Calendar size={18} /> },
@@ -95,7 +91,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky -top-16.5 left-0 right-0 z-20 w-full transition-all duration-700 ease-in-out border-b ${
+      className={`sticky -top-16.5 left-0 right-0 z-40 w-full transition-all duration-700 ease-in-out border-b ${
         isScrolled
           ? 'bg-white dark:bg-slate-950/80 backdrop-blur-sm border-slate-200/60 dark:border-blue-900/30 shadow-[0_8px_40px_rgba(0,0,0,0.08)] py-0'
           : 'bg-white dark:bg-slate-950 border-transparent'
@@ -104,27 +100,27 @@ export default function Header() {
       {/* Top Bar - Identity */}
       <div
         id="header-top"
-        className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-900 text-white py-2 px-4 md:px-8 flex justify-between items-center transition-all duration-500"
+        className="relative overflow-hidden bg-gradient-to-r from-blue-700 via-indigo-600 to-blue-900 text-white py-3.5 md:py-2 px-5 md:px-8 flex justify-between items-center transition-all duration-500"
       >
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
         <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-400 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-pulse"></div>
 
-        <div className="relative z-10 flex items-center gap-3 w-full md:w-auto group cursor-pointer">
-          <div className="flex-shrink-0 bg-white/10 backdrop-blur-md border border-white/20 p-1.5 rounded-xl shadow-lg group-hover:rotate-6 transition-transform duration-500">
+        <div className="relative z-10 flex items-center gap-3 w-auto group cursor-pointer">
+          <div className="flex-shrink-0 bg-white/15 backdrop-blur-md border border-white/20 p-2 md:p-1.5 rounded-xl shadow-lg group-hover:rotate-6 transition-transform duration-500">
             <Image
-              width={34}
-              height={34}
+              width={38}
+              height={38}
               src="/logo/permikomnas-wilayah-14.png"
               alt="Logo Permikomnas 14"
-              className="object-contain drop-shadow-md"
+              className="object-contain drop-shadow-md w-[38px] h-[38px] md:w-[34px] md:h-[34px]"
             />
           </div>
-          <div className="flex flex-col leading-none">
-            <p className="font-extrabold tracking-widest text-[0.6rem] md:text-[0.65rem] opacity-80 uppercase mb-0.5">
+          <div className="flex flex-col leading-tight md:leading-none">
+            <p className="font-black tracking-[0.15em] text-[0.65rem] md:text-[0.65rem] opacity-90 uppercase mb-0.5 md:mb-0.5">
               Permikomnas RI
             </p>
-            <p className="font-bold text-[0.65rem] md:text-[0.75rem] text-white tracking-wide">
-              WILAYAH XIV SULAWESI TENGGARA
+            <p className="font-extrabold text-[0.75rem] md:text-[0.75rem] text-white tracking-normal md:tracking-wide">
+              WILAYAH XIV SULTRA
             </p>
           </div>
         </div>
@@ -138,9 +134,7 @@ export default function Header() {
                 <div className="flex items-center gap-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 backdrop-blur-sm px-3 py-1.5 transition-all duration-300">
                   <div className="relative w-4 h-4 rounded-full overflow-hidden ring-1 ring-white/30">
                     <Image
-                      src={
-                        ID ? '/logo/indonesia-sub.png' : '/logo/english-sub.png'
-                      }
+                      src={ID ? '/logo/indonesia-sub.png' : '/logo/english-sub.png'}
                       fill
                       alt="Current Language"
                       className="object-cover"
@@ -203,9 +197,14 @@ export default function Header() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-white hover:bg-white/10 rounded-full"
+                  className="text-white hover:bg-white/10 rounded-xl w-11 h-11 flex items-center justify-center transition-all active:scale-95"
                 >
-                  <Menu size={24} />
+                  {/* Custom Hamburger Icon */}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-align-end-vertical" aria-hidden="true">
+                    <rect width="16" height="6" x="2" y="4" rx="2"></rect>
+                    <rect width="9" height="6" x="9" y="14" rx="2"></rect>
+                    <path d="M22 22V2"></path>
+                  </svg>
                 </Button>
               </SheetTrigger>
               <SheetContent
@@ -233,7 +232,6 @@ export default function Header() {
                     <p className="px-3 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-3">
                       Menu Navigasi
                     </p>
-                    {/* Basic Links */}
                     {navLinks.map((link) => (
                       <SheetClose asChild key={link.name}>
                         <Link
@@ -248,7 +246,6 @@ export default function Header() {
                       </SheetClose>
                     ))}
 
-                    {/* Mobile Tentang Submenu */}
                     <div className="pt-2">
                       <p className="px-3 text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-2 mt-4">
                         Tentang Kami
@@ -273,32 +270,18 @@ export default function Header() {
                     </p>
                     <div className="grid grid-cols-2 gap-2 px-2">
                       <Button
-                        variant={
-                          language === 'indonesia' ? 'default' : 'outline'
-                        }
+                        variant={language === 'indonesia' ? 'default' : 'outline'}
                         className="rounded-xl h-12 gap-2"
                         onClick={() => setLanguage('indonesia')}
                       >
-                        <Image
-                          src={'/logo/indonesia-sub.png'}
-                          width={16}
-                          height={16}
-                          alt="ID"
-                        />{' '}
-                        ID
+                        <Image src={'/logo/indonesia-sub.png'} width={16} height={16} alt="ID" /> ID
                       </Button>
                       <Button
                         variant={language === 'english' ? 'default' : 'outline'}
                         className="rounded-xl h-12 gap-2"
                         onClick={() => setLanguage('english')}
                       >
-                        <Image
-                          src={'/logo/english-sub.png'}
-                          width={16}
-                          height={16}
-                          alt="EN"
-                        />{' '}
-                        EN
+                        <Image src={'/logo/english-sub.png'} width={16} height={16} alt="EN" /> EN
                       </Button>
                     </div>
                   </div>
@@ -320,24 +303,23 @@ export default function Header() {
       {/* Main Bar */}
       <div
         id="header-bottom"
-        className="container mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-4"
+        className="container mx-auto max-w-7xl px-5 py-3 md:py-3 flex items-center justify-between gap-4"
       >
         {/* Search Bar */}
         <div className="flex-1 md:flex-none relative group z-20">
           <InputGroup className="w-full transition-all duration-500 rounded-full">
-            <div className="absolute inset-y-0 left-3.5 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-600 transition-colors">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-blue-600 transition-colors">
               <Search size={18} />
             </div>
             <InputGroupInput
-              placeholder="Cari berita atau agenda..."
-              className="!pl-11 pr-4 py-2.5 w-full md:w-[280px] md:focus:w-[360px] bg-slate-100/60 dark:bg-slate-900/60 border-none focus:bg-white dark:focus:bg-slate-950 rounded-full text-sm transition-all duration-500 shadow-inner outline-none"
+              placeholder="Cari berita..."
+              className="!pl-12 pr-4 py-3 md:py-2.5 w-full md:w-[280px] md:focus:w-[360px] bg-slate-100/60 dark:bg-slate-900/60 border-none focus:bg-white dark:focus:bg-slate-950 rounded-full text-sm transition-all duration-500 shadow-inner outline-none"
             />
           </InputGroup>
         </div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1">
-          {/* Beranda */}
           <Link
             href="/web"
             className="relative px-5 py-2 cursor-pointer group rounded-full hover:bg-blue-50 dark:hover:bg-white/5 transition-all duration-300"
@@ -348,26 +330,18 @@ export default function Header() {
             <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-blue-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
           </Link>
 
-          {/* Tentang Dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger className="focus:outline-none">
               <div className="relative px-5 py-2 cursor-pointer group rounded-full hover:bg-blue-50 dark:hover:bg-white/5 transition-all duration-300 flex items-center gap-1.5">
                 <span className="text-sm font-bold text-slate-600 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   Tentang
                 </span>
-                <ChevronDown
-                  size={14}
-                  className="text-slate-400 group-hover:text-blue-600 transition-colors"
-                />
+                <ChevronDown size={14} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56 bg-white/95 backdrop-blur-xl border-slate-200 shadow-2xl rounded-2xl p-2 mt-2">
               {tentangSubLinks.map((sub) => (
-                <DropdownMenuItem
-                  key={sub.name}
-                  asChild
-                  className="rounded-xl p-0"
-                >
+                <DropdownMenuItem key={sub.name} asChild className="rounded-xl p-0">
                   <Link
                     href={sub.href}
                     className="w-full flex items-center gap-3 px-3 py-2.5 cursor-pointer hover:bg-blue-50 text-slate-600 font-bold text-sm"
@@ -380,7 +354,6 @@ export default function Header() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          {/* Agenda & Berita (Old Profile changed to Berita) */}
           {navLinks.slice(1).map((link) => (
             <Link
               key={link.name}
@@ -419,19 +392,13 @@ export default function Header() {
             </Button>
 
             <Button
-            onClick={() => router.push('/web/autentikasi?isLogin=true')}
+              onClick={() => router.push('/web/autentikasi?isLogin=true')}
               variant="ghost"
               className="p-0.5 rounded-full w-10 h-10 hover:ring-4 hover:ring-blue-100 dark:hover:ring-blue-900/20 transition-all"
             >
               <Avatar className="h-9 w-9 border border-slate-200 dark:border-slate-800 shadow-sm">
-                <AvatarImage
-                  src="/logo/profil-kosong.png"
-                  alt="profile"
-                  className="object-cover"
-                />
-                <AvatarFallback className="bg-blue-100 text-blue-700 text-xs font-bold">
-                  PM
-                </AvatarFallback>
+                <AvatarImage src="/logo/profil-kosong.png" alt="profile" className="object-cover" />
+                <AvatarFallback className="bg-blue-100 text-blue-700 text-xs font-bold">PM</AvatarFallback>
               </Avatar>
             </Button>
           </div>
