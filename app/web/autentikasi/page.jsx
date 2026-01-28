@@ -1,9 +1,10 @@
-import FormAutentikasi from "@/components/web/autentikasi/FormAutentikasi";
+import FormAutentikasi from '@/components/web/autentikasi/FormAutentikasi';
+import { Suspense } from 'react';
 
 export default function AuthPage() {
   return (
-    <main>
-    <FormAutentikasi />
-    </main>
-  )
+    <Suspense fallback={<div>loading ...</div>}>
+      <FormAutentikasi />
+    </Suspense>
+  );
 }
