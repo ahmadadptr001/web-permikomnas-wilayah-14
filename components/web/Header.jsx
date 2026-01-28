@@ -305,7 +305,7 @@ export default function Header() {
                 </div>
 
                 <div className="p-6 border-t dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50">
-                  <Link href="/auth/login" className="w-full">
+                  <Link href="/web/autentikasi?isLogin=true" className="w-full">
                     <Button className="w-full h-12 rounded-2xl gap-2 font-bold shadow-lg shadow-blue-500/20">
                       <User size={18} /> Masuk Anggota
                     </Button>
@@ -419,6 +419,7 @@ export default function Header() {
             </Button>
 
             <Button
+            onClick={() => router.push('/web/autentikasi?isLogin=true')}
               variant="ghost"
               className="p-0.5 rounded-full w-10 h-10 hover:ring-4 hover:ring-blue-100 dark:hover:ring-blue-900/20 transition-all"
             >

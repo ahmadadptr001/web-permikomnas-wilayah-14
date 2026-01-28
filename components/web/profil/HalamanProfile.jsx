@@ -281,37 +281,6 @@ const HalamanProfil = () => {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-10 border-t border-white/5 pt-16">
-            <div className="flex items-center gap-5 text-left">
-              <div className="w-14 h-14 bg-white flex items-center justify-center rounded-[1.2rem] shadow-2xl">
-                <img
-                  src="https://api.dicebear.com/7.x/initials/svg?seed=P14&backgroundColor=ffffff"
-                  alt="logo"
-                  className="w-10 h-10"
-                />
-              </div>
-              <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-600 leading-none mb-1">
-                  Arsip Digital Resmi
-                </p>
-                <h2 className="text-2xl font-black tracking-tighter">
-                  PERMIKOMNAS XIV
-                </h2>
-              </div>
-            </div>
-            <div className="flex gap-10 text-[9px] font-black uppercase tracking-[0.2em] text-slate-500">
-              <a href="#" className="hover:text-blue-500 transition-colors">
-                Kebijakan Privasi
-              </a>
-              <a href="#" className="hover:text-blue-500 transition-colors">
-                Portal Internal
-              </a>
-              <a href="#" className="hover:text-blue-500 transition-colors">
-                Hak Cipta 2024
-              </a>
-            </div>
-          </div>
-
           <div className="mt-20 flex justify-center gap-4 opacity-30 grayscale">
             <Globe size={24} />
             <span className="text-[10px] font-bold uppercase tracking-widest pt-1">

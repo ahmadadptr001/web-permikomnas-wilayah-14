@@ -11,6 +11,7 @@ import {
   ChevronRight,
   ShieldCheck
 } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
 /**
  * Halaman Autentikasi Split-Screen Fullscreen (V2)
@@ -19,7 +20,9 @@ import {
  */
 
 export default function AuthPage() {
-  const [isLogin, setIsLogin] = useState(false);
+  const searchParams = useSearchParams()
+  const isLoginParams = searchParams.get('isLogin') ?? false
+  const [isLogin, setIsLogin] = useState(isLoginParams);
 
   const toggleAuth = () => setIsLogin(!isLogin);
 
