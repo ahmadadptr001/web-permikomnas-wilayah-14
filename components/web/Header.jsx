@@ -194,7 +194,7 @@ export default function Header() {
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button
+                <button
                   variant="ghost"
                   size="icon"
                   className="text-white hover:bg-white/10 rounded-xl w-11 h-11 flex items-center justify-center transition-all active:scale-95"
@@ -205,7 +205,7 @@ export default function Header() {
                     <rect width="9" height="6" x="9" y="14" rx="2"></rect>
                     <path d="M22 22V2"></path>
                   </svg>
-                </Button>
+                </button>
               </SheetTrigger>
               <SheetContent
                 side="right"
