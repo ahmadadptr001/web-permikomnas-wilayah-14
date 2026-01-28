@@ -75,7 +75,7 @@ export default function Blog() {
 
           <div className="flex items-center gap-4">
              <a 
-              href="/blog" 
+              href="/web/berita" 
               className="group flex items-center gap-2 px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-2xl text-xs font-bold transition-all hover:shadow-xl active:scale-95"
             >
               Jelajahi Blog Utama

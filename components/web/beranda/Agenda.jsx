@@ -179,7 +179,7 @@ export default function Agenda() {
 
         {/* --- Footer Link --- */}
         <div className="mt-12 text-center">
-          <a href="/agenda" className="group text-slate-400 hover:text-blue-600 text-[10px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-all">
+          <a href="/web/agenda" className="group text-slate-400 hover:text-blue-600 text-[10px] font-bold uppercase tracking-widest flex items-center justify-center gap-2 transition-all">
             Lihat Arsip Agenda Lengkap
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </a>
