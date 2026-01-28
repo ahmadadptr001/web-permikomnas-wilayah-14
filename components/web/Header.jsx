@@ -381,15 +381,15 @@ export default function Header() {
           </Link>
 
           <div className="flex items-center gap-2 border-l border-slate-200 dark:border-slate-800 pl-3">
-            <Button
+            <button
               onClick={() => router.push('/web/notifikasi')}
               size="icon"
               variant="ghost"
-              className="relative rounded-full w-10 h-10 text-slate-500 hover:bg-blue-50 transition-colors"
+              className="relative rounded-full flex items-center justify-center w-10 h-10 text-slate-500 hover:bg-blue-50 transition-colors"
             >
-              <Bell size={20} />
-              <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white dark:border-slate-950 animate-pulse"></span>
-            </Button>
+              <Bell size={25} />
+              <span className="absolute top-1.5 right-1.5 w-3 h-3 bg-red-500 rounded-full border-2 border-white dark:border-slate-950 animate-pulse"></span>
+            </button>
 
             <Button
               onClick={() => router.push('/web/autentikasi?isLogin=true')}
