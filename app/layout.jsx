@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
       <body className={`antialiased scroll-smooth`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
+          defaultTheme="light"
           enableSystem
           dissableTransitionOnChange
         >
