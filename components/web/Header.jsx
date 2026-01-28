@@ -72,7 +72,7 @@ export default function Header() {
 
   const tentangSubLinks = [
     {
-      name: 'Profile',
+      name: 'Profil',
       href: '/web/profil',
       icon: <LayoutDashboard size={16} />,
     },

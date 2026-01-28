@@ -108,7 +108,7 @@ const HalamanProfil = () => {
             </span>
           </div>
           <h1 className="text-6xl md:text-[9rem] font-black leading-[0.85] tracking-tighter mb-10">
-            STRUKTUR <br />
+            PROFIL <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/30">
               ORGANISASI
             </span>
